@@ -60,7 +60,7 @@ This tutorial works best if you are using the Bash shell. Linux and macOS come s
 * `cat FILE1 FILE2 > FILE3` — combine two files into third file
 * `cp FILE1 FILE2` — copy file
 * `mv FILE1 FILE2` — move file
-* `rm FILE` — remove file
+* `rm FILE` — remove file (use `rm -i` to have the command ask before deleting)
 * `ln -s FILE LINK` — make a symbolic link
 
 #### Investigating text files
@@ -76,7 +76,7 @@ This tutorial works best if you are using the Bash shell. Linux and macOS come s
 
 #### Working with commands and processes
 
-* `man COMMAND` — display manual page of command if it exists
+* `man COMMAND` — display manual page of command if it exists (also try `help` or `info`)
 * `COMMAND --help` — display usage information
 * `which COMMAND` — show location of command
 * `history` — display past commands
@@ -104,3 +104,9 @@ See the section [The Nano Text Editor](https://github.com/cuttlefishh/python-for
 ### Customizing your terminal
 
 See the section [Setting up your bash environment](https://github.com/cuttlefishh/python-for-data-analysis/blob/master/lessons/lesson02.md#setting-up-your-bash-environment) in my course [Python For Data Analysis](https://github.com/cuttlefishh/python-for-data-analysis) for instructions on customizing your bash environment.
+
+For example, add this to your `.bash_profile` to have your `rm` command ask before deleting a file:
+
+```
+alias rm='rm -i'
+```

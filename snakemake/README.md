@@ -12,9 +12,13 @@ Install Snakemake in your environment of choice using Conda:
 conda install -c bioconda snakemake
 ```
 
-Or, if also installing Tourmaline, install Snakemake by following the instructions at https://github.com/cuttlefishh/tourmaline#installation. Remember to activate your Conda environment before installing or running Snakemake.
+Or, if also installing Tourmaline, install Snakemake by following the instructions at https://github.com/cuttlefishh/tourmaline#installation. Remember to activate your Conda environment before installing or running Snakemake. For example, if you installed Snakemake in your QIIME 2 environment, activate it:
 
-To make a local copy of this README.md file and the examles, create a working directory to work in, then clone the whole Tutorials repository as follows:
+```
+conda activate qiime2-2019.7
+```
+
+To make a local copy of this README.md file and the examles, create a directory to work in, then clone the whole Tutorials repository as follows:
 
 ```
 mkdir ~/workshop-2019.11
@@ -22,9 +26,27 @@ cd ~/workshop-2019.11
 git clone https://github.com/cuttlefishh/tutorials.git
 ```
 
+### Basics
+
+Snakemake takes three kinds of files:
+
+* Snakefile – the only required file, which must be in the directory where you run Snakemake
+* Config file – specifies parameters or locations of input and output files
+* Input files – data, metadata, databases, etc.
+
+The basic syntax of a Snakemake command is:
+
+```
+snakemake [PARAMETERS] [TARGET]
+```
+
+The target is the output file or rule (which can specify output files as "inputs") that is the endpoint of your workflow. The parameters are optional, and in some cases the target is too, as we will see.
+
 ### Examples
 
 Files for the examples below are found in the corresponding directories (`example1`, `example2`, etc.) of the `snakemake` directory of the Tutorials repository.
+
+Always keep track of your current (working) directory. Snakemake will only work with the Snakefile in the current directory (unless you specifically tell it to look elsewhere).
 
 #### Example 1
 
@@ -239,12 +261,10 @@ snakemake all
 snakemake
 ```
 
-
-
 Generate a DAG for this example:
 
 ```
-snakemake --dag main | dot -Tsvg > dag.svg
+snakemake --dag | dot -Tsvg > dag.svg
 ```
 
 A copy of this DAG is stored in directory `dags` of this repository:

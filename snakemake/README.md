@@ -14,15 +14,17 @@ conda install -c bioconda snakemake
 
 Or, if also installing Tourmaline, install Snakemake by following the instructions at https://github.com/cuttlefishh/tourmaline#installation. Remember to activate your Conda environment before installing or running Snakemake.
 
-To make a local copy of this README.md file and the examles, clone the repository as follows:
+To make a local copy of this README.md file and the examles, create a working directory to work in, then clone the whole Tutorials repository as follows:
 
 ```
-git clone https://github.com/cuttlefishh/tourmaline.git
+mkdir ~/workshop-2019.11
+cd ~/workshop-2019.11
+git clone https://github.com/cuttlefishh/tutorials.git
 ```
 
 ### Examples
 
-The examples below contain the required files in the corresponding directories (`example1`, `example2`, etc.) of this repository.
+Files for the examples below are found in the corresponding directories (`example1`, `example2`, etc.) of the `snakemake` directory of the Tutorials repository.
 
 #### Example 1
 

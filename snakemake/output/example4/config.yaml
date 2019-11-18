@@ -1,0 +1,10 @@
+# input files
+file_1: input/file1.csv
+file_2: input/file2.csv
+
+# parameters
+header: 0
+
+# output files
+out_merged: output/merged.csv
+out_described: output/described.txt

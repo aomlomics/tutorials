@@ -1,0 +1,9 @@
+rule main:
+    input:
+        "out.txt"
+
+rule mytask:
+    output:
+        "out.txt"
+    shell:
+        "echo 'Some text' > {output}"

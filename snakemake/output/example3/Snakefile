@@ -1,0 +1,21 @@
+rule all:
+    input:
+        "counts/test_519_R1.txt",
+        "counts/test_520_R1.txt",
+        "counts/test_521_R1.txt"
+
+rule gunzip_fastqgz:
+    input:
+        "fastqgz/{sample}.fastq.gz"
+    output:
+        "fastq/{sample}.fastq"
+    shell:
+        "gunzip -c {input} > {output}"
+        
+rule count_fastq_seqs:
+    input:
+        "fastq/{sample}.fastq"
+    output:
+        "counts/{sample}.txt"
+    shell:
+        "expr $(cat {input} | wc -l) / 4 > {output}"

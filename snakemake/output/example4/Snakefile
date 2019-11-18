@@ -1,0 +1,20 @@
+import pandas as pd
+
+configfile: "config.yaml"
+
+rule merge_describe:
+    input:
+        config["file_1"],
+        config["file_2"]
+    params:
+        config["header"]
+    output:
+        config["out_merged"],
+        config["out_described"]
+    run:
+        df1 = pd.read_csv(input[0], header=params[0])
+        df2 = pd.read_csv(input[1], header=params[0])
+        df_merged = pd.concat([df1, df2])
+        described = df_merged.describe()
+        df_merged.to_csv(output[0], sep=',')
+        described.to_csv(output[1], sep=',')

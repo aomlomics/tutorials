@@ -1,0 +1,13 @@
+rule main:
+    input:
+        "out.txt"
+
+rule sleep:
+    params:
+        lines=2
+    input:
+        "in.txt"
+    output:
+        "out.txt"
+    shell:
+        "head -n {params.lines} {input} > {output}"

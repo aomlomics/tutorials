@@ -32,10 +32,25 @@ rule mytask:
 
 Let's say we want to create an output file `out.txt` that contains some text from an echo command. Each of the four Snakemake commands below will generate the same output file `out.txt`:
 
-* `snakemake out.txt` – specify the desired file as the target
-* `snakemake mytask` – specify the rule that creates the desired file as the target
-* `snakemake main` – specify the default target rule as the target
-* `snakemake` – let the default target rule be the target
+```
+# specify the desired file as the target
+snakemake out.txt
+```
+
+```
+# specify the rule that creates the desired file as the target
+snakemake mytask
+```
+
+```
+# specify the default target rule as the target
+snakemake main
+```
+
+```
+# let the default target rule be the target
+snakemake
+```
 
 Snakemake considers the first rule of the workflow the default target. Therefore, we can create a rule at the top that takes as input all the files we want to be output by the workflow.
 
@@ -97,15 +112,33 @@ rule sleep:
 
 The input file `in.txt` contains 5 lines of text. Let's say we want to print the first 2 lines of that file to `out.txt`. Any of the variant Snakemake commands we used above will work, but let's just specify the top target rule as our target:
 
-* `snakemake main`
+```
+snakemake main
+```
 
 If we wanted to see what rules would be run without running them, we could do a **dry run**:
 
-* `snakemake --dryrun main`
+```
+snakemake --dryrun main
+```
+
+Here are some other versions of dry run, using single-letter parameters, with the first rule as default target:
+
+```
+# dry run (-n), print shell commands (-p)
+snakemake -n -p
+```
+
+```
+# dry run (-n), print execution reason for each job (-r)
+snakemake -n -r
+```
 
 To see the graphical representation of the rules, inputs, and outputs, we can create a **directed acyclic graph (DAG)**. To generate the DAG, we use the `dot` command that comes with Snakemake to create and SVG file:
 
-* `snakemake --dag main | dot -Tsvg > dag.svg`
+```
+snakemake --dag main | dot -Tsvg > dag.svg
+```
 
 A copy of this DAG is stored in directory `dags` of this repository:
 
@@ -178,16 +211,27 @@ rule count_fastq_seqs:
 
 To generate the fastq and sequence count for a single sample, we can specify the counts as the target, which will require both steps to be done:
 
-* `snakemake counts/test_519_R1.txt`
+```
+snakemake counts/test_519_R1.txt
+```
 
 Or, since we have all the samples listed in the first rule `all`, we can just run all samples at once with one of the following (identical output):
 
-* `snakemake all`
-* `snakemake`
+```
+snakemake all
+```
+
+```
+snakemake
+```
+
+
 
 Generate a DAG for this example:
 
-* `snakemake --dag main | dot -Tsvg > dag.svg`
+```
+snakemake --dag main | dot -Tsvg > dag.svg
+```
 
 A copy of this DAG is stored in directory `dags` of this repository:
 
@@ -337,8 +381,13 @@ When we use embedded Python code, we use `run:` instead of `shell:`, and standar
 
 Now we can run the workflow using one of the following commands (identical output):
 
-* `snakemake merge_describe`
-* `snakemake`
+```
+snakemake merge_describe
+```
+
+```
+snakemake
+```
 
 ##### Output
 

@@ -4,8 +4,9 @@ This repository contains tutorials and crash courses for common computing enviro
 
 Current tutorials available are:
 
-* [Command line and Bash](https://github.com/cuttlefishh/tutorials/tree/master/command-line)
+* [Command Line and Bash](https://github.com/cuttlefishh/tutorials/tree/master/command-line)
 * [Python](https://github.com/cuttlefishh/tutorials/tree/master/python)
+* [Snakemake](https://github.com/cuttlefishh/tutorials/tree/master/snakemake)
 
 Future tutorials may include:
 

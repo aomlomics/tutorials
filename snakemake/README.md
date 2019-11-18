@@ -39,6 +39,40 @@ Let's say we want to create an output file `out.txt` that contains some text fro
 
 Snakemake considers the first rule of the workflow the default target. Therefore, we can create a rule at the top that takes as input all the files we want to be output by the workflow.
 
+##### Output
+
+```
+$ snakemake
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	main
+	1	mytask
+	2
+
+[Sun Nov 17 19:24:49 2019]
+rule mytask:
+    output: out.txt
+    jobid: 1
+
+[Sun Nov 17 19:24:49 2019]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Sun Nov 17 19:24:49 2019]
+localrule main:
+    input: out.txt
+    jobid: 0
+
+[Sun Nov 17 19:24:49 2019]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /Users/luke/git/tutorials/snakemake/example1/.snakemake/log/2019-11-17T192449.781643.snakemake.log
+```
+
 #### Example 2
 
 This example introduces the use of an **input file** and **parameters**. We'll also learn about options for dry run and directed acyclic graph (DAG).
@@ -69,9 +103,48 @@ If we wanted to see what rules would be run without running them, we could do a 
 
 * `snakemake --dryrun main`
 
-To see the graphical representation of the rules, inputs, and outputs, we can create a [directed acyclic graph (DAG)](https://en.wikipedia.org/wiki/Directed_acyclic_graph). To generate the **DAG**, we use the `dot` command that comes with Snakemake to create and SVG file:
+To see the graphical representation of the rules, inputs, and outputs, we can create a **directed acyclic graph (DAG)**. To generate the DAG, we use the `dot` command that comes with Snakemake to create and SVG file:
 
 * `snakemake --dag main | dot -Tsvg > dag.svg`
+
+A copy of this DAG is stored in directory `dags` of this repository:
+
+![](dags/ex2_dag.svg)
+
+##### Output
+
+```
+$ snakemake
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	main
+	1	sleep
+	2
+
+[Sun Nov 17 19:26:25 2019]
+rule sleep:
+    input: in.txt
+    output: out.txt
+    jobid: 1
+
+[Sun Nov 17 19:26:25 2019]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Sun Nov 17 19:26:25 2019]
+localrule main:
+    input: out.txt
+    jobid: 0
+
+[Sun Nov 17 19:26:25 2019]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /Users/luke/git/tutorials/snakemake/example2/.snakemake/log/2019-11-17T192625.690627.snakemake.log
+```
 
 #### Example 3
 
@@ -111,6 +184,106 @@ Or, since we have all the samples listed in the first rule `all`, we can just ru
 
 * `snakemake all`
 * `snakemake`
+
+Generate a DAG for this example:
+
+* `snakemake --dag main | dot -Tsvg > dag.svg`
+
+A copy of this DAG is stored in directory `dags` of this repository:
+
+![](dags/ex3_dag.svg)
+
+##### Output
+
+```
+$ snakemake all
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	3	count_fastq_seqs
+	3	gunzip_fastqgz
+	7
+
+[Sun Nov 17 19:27:06 2019]
+rule gunzip_fastqgz:
+    input: fastqgz/test_519_R1.fastq.gz
+    output: fastq/test_519_R1.fastq
+    jobid: 4
+    wildcards: sample=test_519_R1
+
+[Sun Nov 17 19:27:06 2019]
+Finished job 4.
+1 of 7 steps (14%) done
+
+[Sun Nov 17 19:27:06 2019]
+rule count_fastq_seqs:
+    input: fastq/test_519_R1.fastq
+    output: counts/test_519_R1.txt
+    jobid: 1
+    wildcards: sample=test_519_R1
+
+[Sun Nov 17 19:27:06 2019]
+Finished job 1.
+2 of 7 steps (29%) done
+
+[Sun Nov 17 19:27:06 2019]
+rule gunzip_fastqgz:
+    input: fastqgz/test_521_R1.fastq.gz
+    output: fastq/test_521_R1.fastq
+    jobid: 6
+    wildcards: sample=test_521_R1
+
+[Sun Nov 17 19:27:06 2019]
+Finished job 6.
+3 of 7 steps (43%) done
+
+[Sun Nov 17 19:27:06 2019]
+rule count_fastq_seqs:
+    input: fastq/test_521_R1.fastq
+    output: counts/test_521_R1.txt
+    jobid: 3
+    wildcards: sample=test_521_R1
+
+[Sun Nov 17 19:27:06 2019]
+Finished job 3.
+4 of 7 steps (57%) done
+
+[Sun Nov 17 19:27:06 2019]
+rule gunzip_fastqgz:
+    input: fastqgz/test_520_R1.fastq.gz
+    output: fastq/test_520_R1.fastq
+    jobid: 5
+    wildcards: sample=test_520_R1
+
+[Sun Nov 17 19:27:06 2019]
+Finished job 5.
+5 of 7 steps (71%) done
+
+[Sun Nov 17 19:27:06 2019]
+rule count_fastq_seqs:
+    input: fastq/test_520_R1.fastq
+    output: counts/test_520_R1.txt
+    jobid: 2
+    wildcards: sample=test_520_R1
+
+[Sun Nov 17 19:27:06 2019]
+Finished job 2.
+6 of 7 steps (86%) done
+
+[Sun Nov 17 19:27:06 2019]
+localrule all:
+    input: counts/test_519_R1.txt, counts/test_520_R1.txt, counts/test_521_R1.txt
+    jobid: 0
+
+[Sun Nov 17 19:27:06 2019]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: /Users/luke/git/tutorials/snakemake/example3/.snakemake/log/2019-11-17T192706.282062.snakemake.log
+```
 
 #### Example 4
 
@@ -166,4 +339,33 @@ Now we can run the workflow using one of the following commands (identical outpu
 
 * `snakemake merge_describe`
 * `snakemake`
+
+##### Output
+
+```
+$ snakemake
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	merge_describe
+	1
+
+[Sun Nov 17 19:27:42 2019]
+rule merge_describe:
+    input: input/file1.csv, input/file2.csv
+    output: output/merged.csv, output/described.txt
+    jobid: 0
+
+Job counts:
+	count	jobs
+	1	merge_describe
+	1
+[Sun Nov 17 19:27:43 2019]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /Users/luke/git/tutorials/snakemake/example4/.snakemake/log/2019-11-17T192742.013029.snakemake.log
+```
 

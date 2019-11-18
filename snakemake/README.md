@@ -2,11 +2,23 @@
 
 ### Introductory Slideshow
 
-Snakemake In Short: https://slides.com/johanneskoester/snakemake-short#/
+[Snakemake In Short](https://slides.com/johanneskoester/snakemake-short#/) from Snakemake creator Johannes Koester.
 
 ### Installation
 
-Follow the instructions at https://github.com/cuttlefishh/tourmaline#installation.
+Install Snakemake in your environment of choice using Conda:
+
+```
+conda install -c bioconda snakemake
+```
+
+Or, if also installing Tourmaline, install Snakemake by following the instructions at https://github.com/cuttlefishh/tourmaline#installation. Remember to activate your Conda environment before installing or running Snakemake.
+
+To make a local copy of this README.md file and the examles, clone the repository as follows:
+
+```
+git clone https://github.com/cuttlefishh/tourmaline.git
+```
 
 ### Examples
 

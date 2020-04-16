@@ -22,20 +22,31 @@ conda env create -n qiime2-2020.2 --file qiime2-2020.2-py36-osx-conda.yml
 
 ## Data
 
-### Download EMP-format sequences from Qiita
-
-*Note: These steps have been done for you.*
+### Directory setup
 
 Use the commands below to create a directory structure in a convenient place for you (e.g., your home directory):
 
 ```bash
-cd ~
-mkdir qiime2-tutorial
-mkdir qiime2-tutorial/rees-medsea
-mkdir qiime2-tutorial/rees-medsea/metadata
-mkdir qiime2-tutorial/rees-medsea/imported
-mkdir qiime2-tutorial/rees-medsea/denoised
-mkdir qiime2-tutorial/database
+mkdir ~/qiime2-tutorial
+mkdir ~/qiime2-tutorial/rees-medsea
+mkdir ~/qiime2-tutorial/rees-medsea/metadata
+mkdir ~/qiime2-tutorial/rees-medsea/imported
+mkdir ~/qiime2-tutorial/rees-medsea/denoised
+mkdir ~/qiime2-tutorial/database
+```
+
+*Note: The next commands you physically need to run for this tutorial are in the section "Shortcut: Download the data from GitHub".*
+
+### Download EMP-format sequences from Qiita
+
+*Note: These steps have been done for you. They are here for reference, in case you want to work with EMP-format data from [Qiita](https://qiita.ucsd.edu) or another source.*
+
+Create additional directories for the multiplexed ("mux", i.e., EMP-format) and demultiplexed ("demux") sequence files:
+
+```
+mkdir ~/qiime2-tutorial/rees-medsea/sequences
+mkdir ~/qiime2-tutorial/rees-medsea/sequences/mux
+mkdir ~/qiime2-tutorial/rees-medsea/sequences/demux
 ```
 
 Download the raw forward sequences and raw barcodes sequences for the study "Rees Vulcano Island MedSea" from https://qiita.ucsd.edu/study/description/889:
@@ -43,18 +54,18 @@ Download the raw forward sequences and raw barcodes sequences for the study "Ree
 * 2171_s_G1_L001_R1_concat.fastq.gz
 * 2171_s_G1_L001_R1_concat_barcodes.fastq.gz
 
-Move and rename them:
+Move/rename them:
 
 ```bash
-mv 2171_s_G1_L001_R1_concat.fastq.gz ~/qiime2-tutorial/rees-medsea/sequences/emp-single/sequences.fastq.gz
-mv 2171_s_G1_L001_R1_concat_barcodes.fastq.gz ~/qiime2-tutorial/rees-medsea/sequences/emp-single/barcodes.fastq.gz
+mv 2171_s_G1_L001_R1_concat.fastq.gz ~/qiime2-tutorial/rees-medsea/sequences/mux/emp-single/sequences.fastq.gz
+mv 2171_s_G1_L001_R1_concat_barcodes.fastq.gz ~/qiime2-tutorial/rees-medsea/sequences/mux/emp-single/barcodes.fastq.gz
 ```
 
-### Import EMP-format sequences into QIIME 2 format
+### Demultiplex EMP-format sequences with QIIME 2
 
-*Note: These steps have been done for you.*
+*Note: These steps have been done for you. They are here for reference.*
 
-First we activate our conda environment and change to the directory containing the data (this is only a relative path; you should always check the path on your machine):
+First we activate our conda environment and change to the directory containing the data:
 
 ```bash
 conda activate qiime2-2020.2
@@ -97,6 +108,10 @@ sample-id,absolute-filepath,direction
 889.26May.1,$HOME/qiime2-tutorial/rees-medsea/sequences/demux/889.26May.1_8_L001_R1_001.fastq.gz,forward
 ```
 
+### Import fastq sequences into a QIIME 2 artifact
+
+We now have a demultiplexed fastq.gz files and a manifest file that links those fastq.gz files to sample names (which in turn match the sample names in the metatdata file). Whether you started with multiplexed sequences files (e.g., EMP format) or received demultiplexed files from your sequencing center, this is a common starting point.
+
 Import the sequences into a QIIME 2 sequence artifact:
 
 ```bash
@@ -107,11 +122,11 @@ qiime tools import \
 --input-format SingleEndFastqManifestPhred33
 ```
 
-### Download the data from GitHub
+### Shortcut: Download the data from GitHub
 
 *Note: Start here to get the QIIME 2-ready sequence artifact and metadata.*
 
-The data for this tutorial is in the GitHub repository. To download it, we can use `wget` to get just the files we need, in this case the sequence artifact and the metadata:
+The data for this tutorial, which we prepared above, is available directly from the GitHub repository. To download it, we use `wget` to get just the files we need, in this case the sequence artifact and the metadata:
 
 ```bash
 wget https://raw.githubusercontent.com/cuttlefishh/tutorials/master/qiime2/rees-medsea/imported/fastq.qza
@@ -123,7 +138,11 @@ mv metadata.tsv metadata/metadata.tsv
 
 ## Denoise
 
+Now we are ready to start analyzing the data!
+
 ### Run DADA2
+
+Here we will run DADA2 in single-end mode:
 
 ```bash
 qiime dada2 denoise-single \
@@ -183,6 +202,8 @@ ln -s $HOME/databases/qiime2/16s/silva_132_99_16S_taxonomy_7_levels.qza reftax.q
 We will use a consensus BLAST approach:
 
 ```
+cd ../rees-medsea
+
 qiime feature-classifier classify-consensus-blast \
 --i-query denoised/representative_sequences.qza \
 --i-reference-reads ../database/refseqs.qza \
@@ -230,7 +251,7 @@ qiime phylogeny midpoint-root \
 
 ### Run core diversity metrics
 
-Here is where we specify sampling depth (rarefaction) of 8700.
+Here is where we specify sampling depth (rarefaction) of 8700:
 
 ```
 qiime diversity core-metrics-phylogenetic \
@@ -259,7 +280,7 @@ qiime diversity core-metrics-phylogenetic \
 
 ### Run alpha-rarefaction
 
-Here we also specify sampling depth (rarefaction) of 8700.
+Here we also specify sampling depth (rarefaction) of 8700:
 
 ```
 qiime diversity alpha-rarefaction \

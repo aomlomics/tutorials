@@ -1,10 +1,10 @@
-## Snakemake Tutorial
+# Snakemake Tutorial
 
-### Introductory Slideshow
+## Introductory Slideshow
 
 [Snakemake In Short](https://slides.com/johanneskoester/snakemake-short#/) from Snakemake creator Johannes Koester.
 
-### Installation
+## Installation
 
 Install Snakemake in your environment of choice using Conda:
 
@@ -26,7 +26,7 @@ cd ~/workshop-2019.11
 git clone https://github.com/cuttlefishh/tutorials.git
 ```
 
-### Basics
+## Basics
 
 Snakemake takes three kinds of files:
 
@@ -42,17 +42,17 @@ snakemake [PARAMETERS] [TARGET]
 
 The target is the output file or rule (which can specify output files as "inputs") that is the endpoint of your workflow. The parameters are optional, and in some cases the target is too, as we will see.
 
-### Examples
+## Examples
 
 Files for the examples below are found in the corresponding directories (`example1`, `example2`, etc.) of the `snakemake` directory of the Tutorials repository.
 
 Always keep track of your current (working) directory. Snakemake will only work with the Snakefile in the current directory (unless you specifically tell it to look elsewhere).
 
-#### Example 1
+### Example 1
 
 This example uses a target rule "main" at the top and a normal rule "mytask". We learn about **command variations**, **target files**, and **target rules**.
 
-##### Snakefile
+#### Snakefile
 
 ```
 rule main:
@@ -90,7 +90,7 @@ snakemake
 
 Snakemake considers the first rule of the workflow the default target. Therefore, we can create a rule at the top that takes as input all the files we want to be output by the workflow.
 
-##### Output
+#### Output
 
 ```
 $ snakemake
@@ -124,11 +124,11 @@ Finished job 0.
 Complete log: /Users/luke/git/tutorials/snakemake/example1/.snakemake/log/2019-11-17T192449.781643.snakemake.log
 ```
 
-#### Example 2
+### Example 2
 
 This example introduces the use of an **input file** and **parameters**. We'll also learn about options for dry run and directed acyclic graph (DAG).
 
-##### Snakefile
+#### Snakefile
 
 ```
 rule main:
@@ -180,7 +180,7 @@ A copy of this DAG is stored in directory `dags` of this repository:
 
 ![](dags/ex2_dag.svg)
 
-##### Output
+#### Output
 
 ```
 $ snakemake
@@ -215,11 +215,11 @@ Finished job 0.
 Complete log: /Users/luke/git/tutorials/snakemake/example2/.snakemake/log/2019-11-17T192625.690627.snakemake.log
 ```
 
-#### Example 3
+### Example 3
 
 This example uses **wildcards** with **input and output directories**.
 
-##### Snakefile
+#### Snakefile
 
 ```
 rule all:
@@ -271,7 +271,7 @@ A copy of this DAG is stored in directory `dags` of this repository:
 
 ![](dags/ex3_dag.svg)
 
-##### Output
+#### Output
 
 ```
 $ snakemake all
@@ -363,11 +363,11 @@ Finished job 0.
 Complete log: /Users/luke/git/tutorials/snakemake/example3/.snakemake/log/2019-11-17T192706.282062.snakemake.log
 ```
 
-#### Example 4
+### Example 4
 
 This example uses a **config file**, **multiple input files**, and **embedded Python code**.
 
-##### config.yaml
+#### config.yaml
 
 ```
 # input files
@@ -384,7 +384,7 @@ out_described: output/described.txt
 
 The config file is written in YAML. YAML is a plain text file format that stands for "yet another markup language".
 
-##### Snakefile
+#### Snakefile
 
 ```
 import pandas as pd
@@ -423,7 +423,7 @@ snakemake merge_describe
 snakemake
 ```
 
-##### Output
+#### Output
 
 ```
 $ snakemake
@@ -451,4 +451,3 @@ Finished job 0.
 1 of 1 steps (100%) done
 Complete log: /Users/luke/git/tutorials/snakemake/example4/.snakemake/log/2019-11-17T192742.013029.snakemake.log
 ```
-

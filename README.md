@@ -6,12 +6,8 @@ Current tutorials available are:
 
 * [Command Line and Bash](https://github.com/cuttlefishh/tutorials/tree/master/command-line)
 * [Python](https://github.com/cuttlefishh/tutorials/tree/master/python)
+* [QIIME 2](https://github.com/cuttlefishh/tutorials/tree/master/qiime2)
 * [Snakemake](https://github.com/cuttlefishh/tutorials/tree/master/snakemake)
-
-Future tutorials may include:
-
-* R
-* QIIME
 
 ### Getting started
 

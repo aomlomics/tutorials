@@ -1,4 +1,6 @@
-## Command Line Tutorial: Part II
+# Command Line Tutorial
+
+## Part II
 
 ### Overview of today's lesson
 
@@ -11,7 +13,7 @@
 * Wildcards
 * Brace expansion
 * Control keys
- 
+
 ### Variables, bash scripts, and dot-files
 
 #### Bash variables and commands

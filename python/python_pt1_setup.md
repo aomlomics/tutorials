@@ -1,4 +1,6 @@
-## Python Tutorial: Part 1 - Conda, IPython, and Python Basics
+# Python Tutorial
+
+## Part 1 - Conda, IPython, and Python Basics
 
 Here we will install Conda and IPython (a.k.a. Jupyter). Then we will use this IPython notebook to introduce the basic data types and functionality of Python.
 

@@ -1,4 +1,6 @@
-## Command Line Tutorial: Part I
+# Command Line Tutorial
+
+## Part I
 
 #### A note about operating systems
 

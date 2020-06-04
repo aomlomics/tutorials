@@ -1,3 +1,5 @@
+<img src="tutorials_banner.png" alt="tutorials_banner" width="100%"/>
+
 # Tutorials
 
 This repository contains tutorials and crash courses for common computing environments, programs, or languages that are useful for data science.
@@ -24,8 +26,7 @@ cd ~/git
 Then use `git clone` to make a local copy on your computer:
 
 ```
-git clone https://github.com/cuttlefishh/tutorials.git
+git clone https://github.com/aomlomics/tutorials.git
 ```
 
 Now you have all the files in this repository. You can change them if you want, and even request for those changes to be incorporated into the repository using a "pull request" through GitHub.
-

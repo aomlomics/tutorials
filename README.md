@@ -1,3 +1,5 @@
+<img src="tutorials_banner.png" alt="tutorials_banner" width="100%"/>
+
 # Tutorials
 
 This repository contains tutorials and crash courses for common computing environments, programs, or languages that are useful for data science.

@@ -26,8 +26,7 @@ cd ~/git
 Then use `git clone` to make a local copy on your computer:
 
 ```
-git clone https://github.com/cuttlefishh/tutorials.git
+git clone https://github.com/aomlomics/tutorials.git
 ```
 
 Now you have all the files in this repository. You can change them if you want, and even request for those changes to be incorporated into the repository using a "pull request" through GitHub.
-

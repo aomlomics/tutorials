@@ -10,15 +10,15 @@ This tutorial works best if you are using the Bash shell. Linux and macOS come s
 2. Next best option: Install a Linux virtual machine like [VirtualBox](https://www.virtualbox.org) and use the Terminal that comes with it. This takes more time but gives you access to a virtual Linux machine on your PC.
 3. Last resort: Use Windows PowerShell. This has some functionality, as you saw in Appendix A of Shaw. But many of the commands below will not work, including `cd` (by itself), `cd -`, `touch`, `cat` (try `type` or a text editor), `head`, `tail`, and others.
 
-### Overview of Part II
+### Overview of Part I
 
-#### Setup
+Setup
 
 * Open a shell in Terminal (Mac/Linux) or GitBash (Windows)
 * Create a working directory for the course, and a lessons directory inside that
 * Copy the day's lesson from GitHub to your lessons folder
 
-#### Basic commands and skills
+Basic commands and skills
 
 * Moving between directories
 * Absolute and relative paths
@@ -28,10 +28,12 @@ This tutorial works best if you are using the Bash shell. Linux and macOS come s
 * Tab-completion of commands and paths
 * GUI and command-line text editors
 
-#### Customization
+Text editors
 
-* Text editors
-* Terminal
+* GUI text editors
+* Command-line text editors
+
+Customizing your terminal
 
 ### Basic commands
 
@@ -105,19 +107,28 @@ See the section [The Nano Text Editor](https://github.com/cuttlefishh/python-for
 
 ### Customizing your terminal
 
-See the section [Setting up your bash environment](https://github.com/cuttlefishh/python-for-data-analysis/blob/master/lessons/lesson02.md#setting-up-your-bash-environment) in my course [Python For Data Analysis](https://github.com/cuttlefishh/python-for-data-analysis) for instructions on customizing your bash environment.
+See the section [Setting up your bash environment](https://github.com/cuttlefishh/python-for-data-analysis/blob/master/lessons/lesson02.md#setting-up-your-bash-environment) in my course [Python For Data Analysis](https://github.com/cuttlefishh/python-for-data-analysis) for instructions on customizing your bash environment. More information is in the [GNU Bash Manual](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Bash-Startup-Files).
 
-For example, add this to your `.bash_profile` to have your `rm` command ask before deleting a file:
+For example, add this to your `~/.bash_profile` to have your `rm` command ask before deleting a file:
 
 ```
 alias rm='rm -i'
 ```
 
+Add this to your `~/.bash_profile` to color the ouput of `ls`:
+
+```
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+```
+
+
+
 ## Part II
 
 ### Overview of Part II
 
-#### Intermediate commands and skills
+Intermediate commands and skills
 
 * Bash variables and commands
 * Executing bash scripts and dot-files

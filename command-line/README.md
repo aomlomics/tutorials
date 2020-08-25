@@ -170,7 +170,7 @@ fi
 #### Executing bash scripts and dot-files
 
 * `bash SCRIPT.sh` — run a bash shell script
-* `source .DOTFILE` — run a dot-file like your .bash_profile
+* `source .DOTFILE` — run a dot-file like your `.bash_profile`
 
 Any of the commands we have used from the command line (the bash prompt `$`) can also be typed into a text file and executed by typing `bash SCRIPT.sh` from the command line.
 

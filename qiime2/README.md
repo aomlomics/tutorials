@@ -129,10 +129,10 @@ qiime tools import \
 The data for this tutorial, which we prepared above, is available directly from the GitHub repository. To download it, we use `wget` to get just the files we need, in this case the sequence artifact and the metadata:
 
 ```bash
-wget https://raw.githubusercontent.com/cuttlefishh/tutorials/master/qiime2/rees-medsea/imported/fastq.qza
+wget https://raw.githubusercontent.com/aomlomics/tutorials/master/qiime2/rees-medsea/imported/fastq.qza
 mv fastq.qza imported/fastq.qza
 
-wget https://raw.githubusercontent.com/cuttlefishh/tutorials/master/qiime2/rees-medsea/metadata/metadata.tsv
+wget https://raw.githubusercontent.com/aomlomics/tutorials/master/qiime2/rees-medsea/metadata/metadata.tsv
 mv metadata.tsv metadata/metadata.tsv
 ```
 

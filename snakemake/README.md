@@ -12,17 +12,15 @@ Install Snakemake in your environment of choice using Conda:
 conda install -c bioconda snakemake
 ```
 
-Or, if also installing Tourmaline, install Snakemake by following the instructions at https://github.com/aomlomics/tourmaline#installation. Remember to activate your Conda environment before installing or running Snakemake. For example, if you installed Snakemake in your QIIME 2 environment, activate it:
+Or, if also installing Tourmaline, install Snakemake by following the instructions at https://github.com/aomlomics/tourmaline#install. Remember to activate your Conda environment before installing or running Snakemake. For example, if you installed Snakemake in your QIIME 2 environment, activate it:
 
 ```
-conda activate qiime2-2019.7
+conda activate qiime2-2021.2
 ```
 
-To make a local copy of this README.md file and the examles, create a directory to work in, then clone the whole Tutorials repository as follows:
+To make a local copy of this README.md file and the examles, navigate to a directory to work in, then clone the whole Tutorials repository:
 
 ```
-mkdir ~/workshop-2019.11
-cd ~/workshop-2019.11
 git clone https://github.com/aomlomics/tutorials.git
 ```
 

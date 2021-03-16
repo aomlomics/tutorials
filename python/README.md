@@ -1,12 +1,16 @@
 # Python Tutorial
 
-## Part 1 - Conda, IPython, and Python Basics
+This tutorial is broken into three sections:
 
-Here we will install Conda and IPython (a.k.a. Jupyter). Then we will use this IPython notebook to introduce the basic data types and functionality of Python.
+* Getting Started (this page) – Installing Miniconda and Working with Conda
+* [Part 1 – Python Basics](https://github.com/aomlomics/tutorials/blob/master/python/python_pt1.ipynb)
+* [Part 2 – Numpy, Pandas, and Matplotlib](https://github.com/aomlomics/tutorials/blob/master/python/python_pt2.ipynb)
 
-For a full course on Python, go here: https://github.com/cuttlefishh/python-for-data-analysis.
+This tutorial will give you everything you need to import data into Python, analyze it, and make some striking graphs.
 
-### Installing Miniconda and working with Conda
+After completing this tutorial, if you want to learn more and take a full course on Python, check out [Python for Data Analysis](https://github.com/cuttlefishh/python-for-data-analysis), an online course developed by Luke Thompson.
+
+## Getting Started – Installing Miniconda and Working with Conda
 
 *Conda is an open source package management system and environment management system for installing multiple versions of software packages and their dependencies and switching easily between them. It works on Linux, OS X and Windows, and was created for Python programs but can package and distribute any software.* -- http://conda.pydata.org/docs/
 
@@ -60,19 +64,5 @@ List the packages in your current environment:
 conda list
 ```
 
-### Python and IPython command-line interpreter
+Now you're ready to move on to [Part 1 – Python Basics](https://github.com/aomlomics/tutorials/blob/master/python/python_pt1.ipynb).
 
-(demonstration)
-
-### Working with Jupyter notebooks and Python basics
-
-(demonstration with Python Crash Course)
-
-## Python Crash Course
-
-In this tutorial we will cover some basic aspects of Python using IPython (Jupyter) notebooks. 
-
-1. Syntax
-2. Data types
-3. Loops and control structures
-4. numpy, scipy, math

@@ -449,3 +449,65 @@ Finished job 0.
 1 of 1 steps (100%) done
 Complete log: /Users/luke/git/tutorials/snakemake/example4/.snakemake/log/2019-11-17T192742.013029.snakemake.log
 ```
+
+### Example 5
+
+This example uses shell **conditional statement** (if/then/elif/else) in the Snakefile to select one of several commands to run, which is specified in the **config file**.
+
+#### config.yaml
+
+```
+# parameters
+option: a # choose from: a, b, c
+```
+
+The parameter `option` is a string that will be used in a string comparison in the Snakefile.
+
+#### Snakefile
+
+```
+configfile: "config.yaml"
+
+rule choose_from_options:
+    params:
+        option=config["option"]
+    shell:
+        "if [ {params.option} == 'a' ]; then "
+        "    echo 'Doing option a...'; "
+        "elif [ {params.option} == 'b' ]; then "
+        "    echo 'Doing option b...'; "
+        "elif [ {params.option} == 'c' ]; then "
+        "    echo 'Doing option c...'; "
+        "else "
+        "    echo 'Doing default option'; "
+        "fi"
+```
+
+At the top of the Snakefile, we define the config file. 
+
+The rule `choose_from_options` gets the `option` parameter from the config file. The shell command then uses a conditional statement (if/then/elif/else) to execute different code for each of the accepted options, or the default code if an unaccepted option is provided.
+
+Run the code using the basic Snakemake command:
+
+```
+snakemake
+```
+
+#### Output
+
+```
+$ snakemake
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	merge_describe
+	1
+
+rule merge_describe:
+    jobid: 0
+
+Doing option a...
+Finished job 0.
+1 of 1 steps (100%) done
+```

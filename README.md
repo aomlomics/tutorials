@@ -11,6 +11,7 @@ Current tutorials available are:
 * [Python](https://github.com/cuttlefishh/tutorials/tree/master/python)
 * [QIIME 2](https://github.com/cuttlefishh/tutorials/tree/master/qiime2)
 * [Snakemake](https://github.com/cuttlefishh/tutorials/tree/master/snakemake)
+* [Docker](https://github.com/aomlomics/tutorials/tree/master/docker)
 
 ## Getting started
 

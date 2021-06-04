@@ -1,0 +1,15 @@
+configfile: "config.yaml"
+
+rule choose_from_options:
+    params:
+        option=config["option"]
+    shell:
+        "if [ {params.option} == 'a' ]; then "
+        "    echo 'Doing option a...'; "
+        "elif [ {params.option} == 'b' ]; then "
+        "    echo 'Doing option b...'; "
+        "elif [ {params.option} == 'c' ]; then "
+        "    echo 'Doing option c...'; "
+        "else "
+        "    echo 'Doing default option'; "
+        "fi"

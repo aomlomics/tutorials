@@ -1,5 +1,10 @@
 # Command Line Tutorial
 
+This material is intended for a guided tutorial. If you are working on your own, check out Lessons 2 and 3 of the online course Python For Data Analysis (video lectures and markdown files):
+
+* Lesson 2 (Part I of Command Line Tutorial): [Lesson 2 on YouTube](https://www.youtube.com/watch?v=rPj-hJDIKkE), [Lesson 2 on GitHub](https://github.com/cuttlefishh/python-for-data-analysis/blob/master/lessons/lesson02.md)
+* Lesson 3 (Part II of Command Line Tutorial): [Lesson 3 on YouTube](https://www.youtube.com/watch?v=UPfMM5oTVKk), [Lesson 3 on GitHub](https://github.com/cuttlefishh/python-for-data-analysis/blob/master/lessons/lesson03.md)
+
 ## Part I
 
 ### A note about operating systems

@@ -6,12 +6,13 @@ This repository contains tutorials and crash courses for common computing enviro
 
 Current tutorials available are:
 
-* [Command Line and Bash](https://github.com/cuttlefishh/tutorials/tree/master/command-line)
+* [Command Line](https://github.com/cuttlefishh/tutorials/tree/master/command-line)
 * [Git and GitHub](https://github.com/cuttlefishh/tutorials/tree/master/github)
 * [Python](https://github.com/cuttlefishh/tutorials/tree/master/python)
 * [Data Wrangling](https://github.com/cuttlefishh/tutorials/tree/master/data-wrangling)
 * [QIIME 2](https://github.com/cuttlefishh/tutorials/tree/master/qiime2)
 * [Snakemake](https://github.com/cuttlefishh/tutorials/tree/master/snakemake)
+* [Docker](https://github.com/aomlomics/tutorials/tree/master/docker)
 
 ## Getting started
 

@@ -6,18 +6,18 @@ Slideshow on QIIME 2 philosophy and theory: slides on [Google Drive](https://dri
 
 Documentation from [qiime2.org](https://qiime2.org):
 
-* [Overview of QIIME 2 Plugin Workflows](https://docs.qiime2.org/2020.2/tutorials/overview/)
-* [QIIME 2 for Experienced Microbiome Researchers](https://docs.qiime2.org/2020.2/tutorials/qiime2-for-experienced-microbiome-researchers/)
+* [Overview of QIIME 2 Plugin Workflows](https://docs.qiime2.org/2021.2/tutorials/overview/)
+* [QIIME 2 for Experienced Microbiome Researchers](https://docs.qiime2.org/2021.2/tutorials/qiime2-for-experienced-microbiome-researchers/)
 
 ## Installation
 
 First, if you don't have Conda installed on your machine, install [Miniconda](https://conda.io/miniconda.html) for your operating system (Python 3.7+ version).
 
-Second, install QIIME 2 in a Conda environment, if you haven't already. See the instructions at [qiime2.org](https://docs.qiime2.org/2019.7/install/native/). For example, on macOS these commands will install QIIME 2 inside a Conda environment called `qiime2-2020.2` (for Linux, change "osx" to "linux"):
+Second, install QIIME 2 in a Conda environment, if you haven't already. See the instructions at [qiime2.org](https://docs.qiime2.org/2019.7/install/native/). For example, on macOS these commands will install QIIME 2 inside a Conda environment called `qiime2-2021.2` (for Linux, change "osx" to "linux"):
 
 ```bash
-wget https://data.qiime2.org/distro/core/qiime2-2020.2-py36-osx-conda.yml
-conda env create -n qiime2-2020.2 --file qiime2-2020.2-py36-osx-conda.yml
+wget https://data.qiime2.org/distro/core/qiime2-2021.2-py36-osx-conda.yml
+conda env create -n qiime2-2021.2 --file qiime2-2021.2-py36-osx-conda.yml
 ```
 
 ## Data
@@ -68,7 +68,7 @@ mv 2171_s_G1_L001_R1_concat_barcodes.fastq.gz ~/qiime2-tutorial/rees-medsea/sequ
 First we activate our conda environment and change to the directory containing the data:
 
 ```bash
-conda activate qiime2-2020.2
+conda activate qiime2-2021.2
 cd ~/qiime2-tutorial/rees-medsea
 ```
 
@@ -129,10 +129,10 @@ qiime tools import \
 The data for this tutorial, which we prepared above, is available directly from the GitHub repository. To download it, we use `wget` to get just the files we need, in this case the sequence artifact and the metadata:
 
 ```bash
-wget https://raw.githubusercontent.com/cuttlefishh/tutorials/master/qiime2/rees-medsea/imported/fastq.qza
+wget https://raw.githubusercontent.com/aomlomics/tutorials/master/qiime2/rees-medsea/imported/fastq.qza
 mv fastq.qza imported/fastq.qza
 
-wget https://raw.githubusercontent.com/cuttlefishh/tutorials/master/qiime2/rees-medsea/metadata/metadata.tsv
+wget https://raw.githubusercontent.com/aomlomics/tutorials/master/qiime2/rees-medsea/metadata/metadata.tsv
 mv metadata.tsv metadata/metadata.tsv
 ```
 

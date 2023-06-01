@@ -1,6 +1,6 @@
 <img src="tutorials_banner.png" alt="tutorials_banner" width="100%"/>
 
-# Tutorials
+# AOML Tutorials
 
 This repository contains tutorials and crash courses for common computing environments, programs, or languages that are useful for data science.
 
@@ -32,3 +32,20 @@ git clone https://github.com/aomlomics/tutorials.git
 ```
 
 Now you have all the files in this repository. You can change them if you want, and even request for those changes to be incorporated into the repository using a "pull request" through GitHub.
+
+# Other useful tutorials 
+
+## Python 
+
+- [Python for Data Analysis course](https://github.com/cuttlefishh/python-for-data-analysis)
+- [Rosalind problem sets](https://rosalind.info/problems/locations/), especially the Python Village and the 1st few problems in the Bioinformatics Stronghold. These can be challenging as they don't provide step-by-step instructions to solve every problem, but are great because they require you to practice "Googling" to figure out a solution. 
+
+## Command line 
+- [Intro command line tutorial](https://www.science.smith.edu/sawlab/command-line-tutorial_1/) 
+
+## eDNA Bioinformatics 
+
+### Qiime2
+- [YouTube course on Qiime2](https://forum.qiime2.org/t/microbiome-bioinformatics-with-qiime-2-free-online-workshop/18244)
+- [Text tutorial on Qiime2](https://docs.qiime2.org/2023.2/tutorials/moving-pictures/)
+
